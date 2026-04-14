@@ -1,13 +1,113 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drive Easy</title>
+  <meta charset="UTF-8">
+  <title>Ma Flotte</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; background: #f9f9f9; }
+    .filters { display: flex; gap: 8px; margin-bottom: 1.5rem; }
+    button { padding: 6px 16px; border: 1px solid #ccc; border-radius: 8px;
+             background: white; cursor: pointer; }
+    button.active { background: #dbeafe; border-color: #3b82f6; color: #1d4ed8; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+    .card { background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1rem; }
+  </style>
 </head>
 <body>
-    <link rel="stylesheet" href="css/style.css">
-    <h1>Bienvenue sur Drive Easy</h1>
-    <p>Votre solution de réservation de voiture en ligne.</p>
+
+  <!-- Les filtres (= FleetFilters) -->
+  <div class="filters">
+    <button class="active" onclick="setFilter('all', this)">Tous</button>
+    <button onclick="setFilter('suv', this)">SUV</button>
+    <button onclick="setFilter('berline', this)">Berline</button>
+    <button onclick="setFilter('utilitaire', this)">Utilitaire</button>
+  </div>
+
+  <!-- La grille de véhicules (= VehicleCard) -->
+  <div class="grid" id="grid"></div>
+
+  <script>
+    // 👇 Tes données (en React, ça venait du serveur via useQuery)
+    const vehicles = [
+      { name: "Peugeot 3008",    category: "suv",        year: 2023 },
+      { name: "Renault Clio",    category: "berline",     year: 2022 },
+      { name: "Toyota RAV4",     category: "suv",        year: 2021 },
+      { name: "Citroën Berlingo",category: "utilitaire",  year: 2023 },
+    ];
+
+    // 👇 Équivalent du useState('all')
+    let currentFilter = 'all';
+
+    function renderGrid() {
+      // 👇 Équivalent du .filter() du code React
+      const filtered = currentFilter === 'all'
+        ? vehicles
+        : vehicles.filter(v => v.category === currentFilter);
+
+      // 👇 Équivalent du .map() qui génère les VehicleCard
+      document.getElementById('grid').innerHTML = filtered.map(v => `
+        <div class="card">
+          <strong>${v.name}</strong>
+          <p>${v.category} · ${v.year}</p>
+        </div>
+      `).join('');
+    }
+
+    function setFilter(cat, btn) {
+      currentFilter = cat;
+      document.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderGrid(); // 👇 Re-rendu comme React le ferait automatiquement
+    }
+
+    renderGrid(); // Premier affichage
+  </script>
 </body>
-</html>
+
+  return (
+    <div className="min-h-screen">
+      {/* Header */}
+      <section className="pt-16 pb-8 sm:pt-24 sm:pb-12">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <p className="text-xs font-semibold tracking-[0.3em] uppercase text-muted-foreground mb-3">
+              Catalogue
+            </p>
+            <h1 className="text-4xl sm:text-6xl font-black tracking-tighter mb-8">
+              Notre Flotte
+            </h1>
+            <FleetFilters activeCategory={category} onCategoryChange={setCategory} />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Grid */}
+      <section className="pb-24">
+        <div className="max-w-7xl mx-auto px-6">
+          {isLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[1, 2, 3, 4, 5, 6].map((i) => (
+                <div key={i} className="aspect-[4/3] bg-card rounded-sm animate-pulse" />
+              ))}
+            </div>
+          ) : filtered.length === 0 ? (
+            <div className="text-center py-24">
+              <p className="text-muted-foreground">Aucun véhicule trouvé dans cette catégorie.</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filtered.map((vehicle, i) => (
+                <VehicleCard key={vehicle.id} vehicle={vehicle} index={i} />
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+    </div>
+  );
+}
