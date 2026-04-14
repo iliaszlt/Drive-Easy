@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drive Easy</title>
+</head>
+<body>
+    <link rel="stylesheet" href="css/style.css">
+    <h1>Bienvenue sur Drive Easy</h1>
+    <p>Votre solution de réservation de voiture en ligne.</p>
+</body>
+</html>
