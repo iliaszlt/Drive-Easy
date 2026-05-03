@@ -1,101 +1,66 @@
-/* ============================================================
-   STYLE.CSS — Site de réservation de voiture
-   Auteur : BTS SIO 1ère année
-   ============================================================ */
-
-/* ============================================================
-   1. VARIABLES CSS — les "réglages" globaux du site
-   On définit les couleurs et tailles une seule fois ici.
-   Si tu veux changer une couleur, tu la changes qu'à un endroit !
-   ============================================================ */
 :root {
-  --couleur-principale: #1a1a2e;   /* bleu nuit foncé — le fond */
-  --couleur-accent:     #003aea;   /* rouge/rose — les boutons, les titres */
-  --couleur-clair:      #16213e;   /* bleu nuit moyen — les cartes */
-  --couleur-texte:      #eaeaea;   /* gris très clair — le texte */
-  --couleur-texte-mute: #8892a4;   /* gris moyen — texte secondaire */
-  --couleur-blanc:      #ffffff;   /* blanc pur */
-  --rayon-bord:         12px;      /* arrondi des coins des cartes */
-  --ombre:              0 4px 20px rgba(0, 0, 0, 0.4); /* ombre portée */
+  --couleur-principale: #1a1a2e;
+  --couleur-accent:     #003aea;
+  --couleur-clair:      #16213e;
+  --couleur-texte:      #eaeaea;
+  --couleur-texte-mute: #8892a4;
+  --couleur-blanc:      #ffffff;
+  --rayon-bord:         12px;
+  --ombre:              0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* ============================================================
-   2. RESET — supprime les styles par défaut du navigateur
-   Chaque navigateur (Chrome, Firefox...) a ses propres styles.
-   Ce reset permet de partir d'une base identique partout.
-   ============================================================ */
 * {
-  margin: 0;           /* supprime les marges par défaut */
-  padding: 0;          /* supprime les espacements internes par défaut */
-  box-sizing: border-box; /* le padding est INCLUS dans la largeur, plus intuitif */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
 }
 
-/* ============================================================
-   3. BODY — la mise en page globale de la page
-   ============================================================ */
+
+.bvn{
+
+  text-align: center;
+}
+
 body {
-  font-family: 'Segoe UI', Arial, sans-serif; /* police par défaut */
-  background-color: var(--couleur-principale); /* fond sombre */
-  color: var(--couleur-texte);                 /* texte clair */
-  line-height: 1.6; /* espace entre les lignes pour la lisibilité */
-  min-height: 100vh; /* occupe au minimum toute la hauteur de l'écran */
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: var(--couleur-principale);
+  color: var(--couleur-texte);
+  line-height: 1.6;
+  min-height: 100vh;
 }
 
-/* ============================================================
-   4. EN-TÊTE (HEADER) — la barre de navigation en haut
-   ============================================================ */
 header {
   background-color: var(--couleur-clair);
-  padding: 1rem 2rem;              /* espace intérieur : haut/bas | gauche/droite */
-  display: flex;                   /* flexbox = mise en page en ligne */
-  justify-content: space-between;  /* logo à gauche, nav à droite */
-  align-items: center;             /* centré verticalement */
-  box-shadow: var(--ombre);        /* ombre sous le header */
-  position: sticky; /* reste visible quand on fait défiler la page */
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--ombre);
+  position: sticky;
   top: 0;
-  z-index: 100; /* reste au-dessus des autres éléments */
+  z-index: 100;
 }
 
-/* Le nom du site (logo texte) */
 .logo {
-  font-size: 1.5rem;     /* taille du texte */
-  font-weight: 700;      /* gras */
-  color: var(--couleur-accent); /* rouge */
-  letter-spacing: 2px;   /* espace entre les lettres */
-  text-transform: uppercase; /* tout en majuscules */
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--couleur-accent);
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
-/* Liste des liens de navigation */
 nav ul {
-  list-style: none; /* supprime les puces de la liste */
-  display: flex;    /* les liens s'affichent en ligne */
-  gap: 2rem;        /* espace entre chaque lien */
+  list-style: none;
+  display: flex;
+  gap: 2rem;
 }
 
 nav a {
   color: var(--couleur-texte);
-  text-decoration: none;   /* supprime le soulignement */
+  text-decoration: none;
   font-size: 0.95rem;
-  transition: color 0.3s;  /* animation douce au survol */
-}
-
-/* Au survol d'un lien de navigation */
-nav a:hover {
-  color: var(--couleur-accent); /* devient rouge */
-}
-
-/* ============================================================
-   5. SECTION HÉRO — la grande bannière d'accueil
-   ============================================================ */
-.hero {
-  text-align: center;
-  padding: 5rem 2rem;
-  background: linear-gradient(
-    135deg,               /* angle du dégradé */
-    var(--couleur-principale) 0%,
-    var(--couleur-clair) 100%
-  );
-  border-bottom: 2px solid var(--couleur-accent); /* ligne rouge en bas */
+  transition: color 0.3s;
 }
 
 .hero h1 {
