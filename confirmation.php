@@ -52,8 +52,7 @@ $stmt = $pdo->prepare("INSERT INTO reservation (id_client, id_voiture, date_debu
 $stmt->execute([$id_client, $id_voiture, $date_debut, $date_fin, $prix_total]);
 
 
-$stmt = $pdo->prepare("INSERT INTO reservation (id_client, id_voiture, date_debut, date_fin, prix_total, statut) VALUES (?, ?, ?, ?, ?, 'en_attente')");
-$stmt->execute([$id_client, $id_voiture, $date_debut, $date_fin, $prix_total]);
+
 
 
 $stmt = $pdo->prepare("UPDATE voiture SET disponibilite = 0 WHERE id = ?");
