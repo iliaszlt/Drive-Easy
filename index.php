@@ -66,7 +66,7 @@ $voitures = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
   
   <section id="voitures">
-    <h2 class="titre-section">Nos véhicules disponibles</h2>
+    <h2 class="titre-section">Nos véhicules </h2>
     <p class="sous-titre-section">Choisissez parmi notre sélection</p>
 
     <div class="grille-voitures">
@@ -88,9 +88,9 @@ $voitures = $stmt->fetchAll(PDO::FETCH_ASSOC);
       </div>
       <p>
         <?php if ($voiture['disponibilite'] == 1): ?>
-          Disponible ✅
+          Disponible 
         <?php else: ?>
-          Indisponible ❌
+          Indisponible 
         <?php endif; ?>
       </p>
     </div>
