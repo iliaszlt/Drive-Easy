@@ -1,385 +1,508 @@
 :root {
-  --couleur-principale: #1a1a2e;
-  --couleur-accent:     #003aea;
-  --couleur-clair:      #16213e;
-  --couleur-texte:      #eaeaea;
-  --couleur-texte-mute: #8892a4;
-  --couleur-blanc:      #ffffff;
-  --rayon-bord:         12px;
-  --ombre:              0 4px 20px rgba(0, 0, 0, 0.4);
+ --couleur-principale: #1a1a2e;
+ --couleur-accent: #003aea;
+ --couleur-clair: #16213e;
+ --couleur-texte: #eaeaea;
+ --couleur-texte-mute: #8892a4;
+ --couleur-blanc: #ffffff;
+ --rayon-bord: 12px;
+ --ombre: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .hero h1 { font-size: 2.4rem; }
+
+  .formulaire-recherche {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .formulaire-recherche button {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 1024px) {
+  .hero h1 { font-size: 2.4rem; }
+
+  .formulaire-recherche {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .formulaire-recherche button {
+    grid-column: 1 / -1;
+  }
 }
 
 
-.bvn{
+@media (max-width: 700px) {
+  header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
 
-  text-align: center;
+  
+  
+
+  .hero {
+    padding: 3rem 1rem;
+  }
+
+  .hero h1 { font-size: 1.8rem; }
+  .hero p  { font-size: 1rem; }
+
+  .formulaire-recherche {
+    grid-template-columns: 1fr;
+    margin: 1rem;
+  }
+
+  .grille-voitures {
+    grid-template-columns: 1fr; 
+  }
+
+  .grille-avantages {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .carte-contact {
+    margin: 0 1rem 2rem;
+    max-width: 100%;
+  }
+
+  section {
+    padding: 2rem 1rem;
+  }
+}
+
+/* ===== TRÈS PETIT MOBILE (≤ 400px) ===== */
+@media (max-width: 400px) {
+  .hero h1 { font-size: 1.5rem; }
+
+  .grille-avantages {
+    grid-template-columns: 1fr;
+  }
+
+  .btn {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}
+
+
+.bvn {
+ text-align: center;
 }
 
 body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background-color: var(--couleur-principale);
-  color: var(--couleur-texte);
-  line-height: 1.6;
-  min-height: 100vh;
+ font-family: 'Segoe UI', Arial, sans-serif;
+ background-color: var(--couleur-principale);
+ color: var(--couleur-texte);
+ line-height: 1.6;
+ min-height: 100vh;
 }
 
 header {
-  background-color: var(--couleur-clair);
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: var(--ombre);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+ background-color: var(--couleur-clair);
+ padding: 1rem 2rem;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ box-shadow: var(--ombre);
+ position: sticky;
+ top: 0;
+ z-index: 100;
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--couleur-accent);
-  letter-spacing: 2px;
-  text-transform: uppercase;
+ font-size: 1.5rem;
+ font-weight: 700;
+ color: var(--couleur-accent);
+ letter-spacing: 2px;
+ text-transform: uppercase;
 }
 
 nav ul {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
+ list-style: none;
+ display: flex;
+ gap: 2rem;
 }
 
 nav a {
-  color: var(--couleur-texte);
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: color 0.3s;
+ color: var(--couleur-texte);
+ text-decoration: none;
+ font-size: 0.95rem;
+ transition: color 0.3s;
+}
+
+nav a:hover {
+ color: var(--couleur-accent);
+}
+
+.hero {
+ text-align: center;
+ padding: 5rem 2rem;
+ background: linear-gradient(135deg, var(--couleur-principale) 0%, var(--couleur-clair) 100%);
+ border-bottom: 2px solid var(--couleur-accent);
 }
 
 .hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  color: var(--couleur-blanc);
+ font-size: 3rem;
+ margin-bottom: 1rem;
+ color: var(--couleur-blanc);
 }
 
-/* Le mot mis en valeur dans le titre */
 .hero h1 span {
-  color: var(--couleur-accent); /* rouge */
+ color: var(--couleur-accent);
 }
 
 .hero p {
-  font-size: 1.15rem;
-  color: var(--couleur-texte-mute);
-  max-width: 500px;     /* limite la largeur pour rester lisible */
-  margin: 0 auto 2rem;  /* centré horizontalement */
+ font-size: 1.15rem;
+ color: var(--couleur-texte-mute);
+ max-width: 500px;
+ margin: 0 auto 2rem;
 }
 
-/* ============================================================
-   6. BOUTONS — style réutilisable pour tous les boutons
-   ============================================================ */
 .btn {
-  display: inline-block;
-  padding: 0.75rem 2rem;
-  border-radius: 50px;       /* coins très arrondis = style "pilule" */
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;           /* curseur main au survol */
-  border: none;
-  transition: transform 0.2s, opacity 0.2s; /* animation au clic */
-  text-decoration: none;
+ display: inline-block;
+ padding: 0.75rem 2rem;
+ border-radius: 50px;
+ font-size: 1rem;
+ font-weight: 600;
+ cursor: pointer;
+ border: none;
+ transition: transform 0.2s, opacity 0.2s;
+ text-decoration: none;
 }
 
-/* Bouton principal (rouge) */
 .btn-principal {
-  background-color: var(--couleur-accent);
-  color: var(--couleur-blanc);
+ background-color: var(--couleur-accent);
+ color: var(--couleur-blanc);
 }
 
-/* Bouton secondaire (transparent avec bordure) */
 .btn-secondaire {
-  background-color: transparent;
-  color: var(--couleur-accent);
-  border: 2px solid var(--couleur-accent);
+ background-color: transparent;
+ color: var(--couleur-accent);
+ border: 2px solid var(--couleur-accent);
 }
 
-/* Animation au survol des boutons */
 .btn:hover {
-  opacity: 0.85;           /* légèrement transparent */
-  transform: translateY(-2px); /* remonte légèrement */
+ opacity: 0.85;
+ transform: translateY(-2px);
 }
 
-/* ============================================================
-   7. FORMULAIRE DE RECHERCHE — la barre de réservation
-   ============================================================ */
 .formulaire-recherche {
-  background-color: var(--couleur-clair);
-  border-radius: var(--rayon-bord);
-  padding: 2rem;
-  max-width: 900px;
-  margin: -2rem auto 3rem; /* marges négatives pour chevaucher la section héro */
-  box-shadow: var(--ombre);
-  display: grid; /* disposition en grille */
-  grid-template-columns: repeat(3, 1fr) auto; /* 3 champs égaux + 1 bouton */
-  gap: 1rem;
-  align-items: end; /* aligne tout en bas (pour le bouton) */
+ background-color: var(--couleur-clair);
+ border-radius: var(--rayon-bord);
+ padding: 2rem;
+ max-width: 900px;
+ margin: -2rem auto 3rem;
+ box-shadow: var(--ombre);
+ display: grid;
+ grid-template-columns: repeat(3, 1fr) auto;
+ gap: 1rem;
+ align-items: end;
 }
 
-/* Chaque groupe label + input */
 .champ {
-  display: flex;
-  flex-direction: column; /* label au-dessus, input en-dessous */
-  gap: 0.5rem;
+ display: flex;
+ flex-direction: column;
+ gap: 0.5rem;
 }
 
 .champ label {
-  font-size: 0.8rem;
-  color: var(--couleur-texte-mute);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+ font-size: 0.8rem;
+ color: var(--couleur-texte-mute);
+ text-transform: uppercase;
+ letter-spacing: 1px;
 }
 
-/* Les champs de saisie (input, select) */
 .champ input,
 .champ select {
-  background-color: var(--couleur-principale);
-  border: 1px solid #2a2a4a;  /* bordure subtile */
-  border-radius: 8px;
-  padding: 0.65rem 1rem;
-  color: var(--couleur-texte);
-  font-size: 1rem;
-  outline: none; /* supprime le contour bleu par défaut du navigateur */
-  transition: border-color 0.3s;
+ background-color: var(--couleur-principale);
+ border: 1px solid #2a2a4a;
+ border-radius: 8px;
+ padding: 0.65rem 1rem;
+ color: var(--couleur-texte);
+ font-size: 1rem;
+ outline: none;
+ transition: border-color 0.3s;
 }
 
-/* Quand l'utilisateur clique sur un champ */
 .champ input:focus,
 .champ select:focus {
-  border-color: var(--couleur-accent); /* bordure rouge au focus */
+ border-color: var(--couleur-accent);
 }
 
-/* ============================================================
-   8. SECTION — structure commune à toutes les sections
-   ============================================================ */
 section {
-  padding: 3rem 2rem;
-  max-width: 1100px; /* largeur maximale centrée */
-  margin: 0 auto;
+ padding: 3rem 2rem;
+ max-width: 1100px;
+ margin: 0 auto;
 }
 
-/* Titre de section */
 .titre-section {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
-  color: var(--couleur-blanc);
+ font-size: 1.8rem;
+ margin-bottom: 0.5rem;
+ color: var(--couleur-blanc);
 }
 
-/* Sous-titre de section */
 .sous-titre-section {
-  color: var(--couleur-texte-mute);
-  margin-bottom: 2rem;
+ color: var(--couleur-texte-mute);
+ margin-bottom: 2rem;
 }
 
-/* ============================================================
-   9. GRILLE DE VOITURES — les cartes de véhicules
-   ============================================================ */
+
 .grille-voitures {
   display: grid;
-  /* auto-fill : crée autant de colonnes que possible
-     minmax(260px, 1fr) : chaque colonne fait min 260px, max 1fr */
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1.5rem; /* espace entre les cartes */
+  gap: 20px;
+  padding: 10px;
+  max-width: 1100px;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 }
 
-/* Une carte voiture */
 .carte-voiture {
-  background-color: var(--couleur-clair);
-  border-radius: var(--rayon-bord);
-  overflow: hidden;  /* le contenu ne dépasse pas les coins arrondis */
-  box-shadow: var(--ombre);
-  transition: transform 0.3s; /* animation au survol */
-  border: 1px solid transparent; /* invisible par défaut */
+ background-color: var(--couleur-clair);
+ border-radius: 10px;
+ transition: transform 0.3s;
+ border: 1px solid transparent;
 }
 
-/* La carte monte légèrement au survol */
 .carte-voiture:hover {
-  transform: translateY(-6px);
-  border-color: var(--couleur-accent); /* bordure rouge visible */
+ transform: translateY(-6px);
+ border-color: blue;
 }
 
-/* L'image de la voiture */
 .carte-voiture img {
-  width: 100%;      /* occupe toute la largeur de la carte */
-  height: 180px;    /* hauteur fixe */
-  object-fit: cover; /* l'image remplit la zone sans se déformer */
-  display: block;
+ width: 100%;
+ height: 180px;
+ object-fit: cover;
+ display: block;
+ border-radius: 10px;
 }
 
-/* Le contenu texte de la carte */
 .carte-contenu {
-  padding: 1.25rem;
+ padding: 1.25rem;
 }
 
-/* Nom de la voiture */
 .carte-contenu h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
-  color: var(--couleur-blanc);
+ font-size: 1.1rem;
+ margin-bottom: 0.5rem;
+ color: var(--couleur-blanc);
 }
 
-/* Les petites caractéristiques (icône + texte) */
 .caracteristiques {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  flex-wrap: wrap; /* passe à la ligne si pas assez de place */
+ display: flex;
+ gap: 1rem;
+ margin-bottom: 1rem;
+ flex-wrap: wrap;
 }
 
 .caracteristiques span {
-  font-size: 0.8rem;
-  color: var(--couleur-texte-mute);
-  background-color: var(--couleur-principale);
-  padding: 0.25rem 0.6rem;
-  border-radius: 4px;
+ font-size: 0.8rem;
+ color: var(--couleur-texte-mute);
+ background-color: var(--couleur-principale);
+ padding: 0.25rem 0.6rem;
+ border-radius: 4px;
 }
 
-/* Pied de carte : prix + bouton */
 .carte-pied {
-  display: flex;
-  justify-content: space-between; /* prix à gauche, bouton à droite */
-  align-items: center;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
 }
 
-/* Le prix */
 .prix {
-  color: var(--couleur-accent);
-  font-size: 1.2rem;
-  font-weight: 700;
+ color: var(--couleur-accent);
+ font-size: 1.2rem;
+ font-weight: 700;
 }
 
 .prix small {
-  font-size: 0.75rem;
-  color: var(--couleur-texte-mute);
-  font-weight: 400;
+ font-size: 0.75rem;
+ color: var(--couleur-texte-mute);
+ font-weight: 400;
 }
 
-/* ============================================================
-   10. SECTION AVANTAGES — les points forts du service
-   ============================================================ */
 .section-avantages {
-  background-color: var(--couleur-clair);
-  padding: 3rem 2rem;
-  margin-top: 2rem;
+ background-color: var(--couleur-clair);
+ padding: 3rem 2rem;
+ margin-top: 2rem;
 }
 
 .grille-avantages {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1.5rem;
-  max-width: 1100px;
-  margin: 0 auto;
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+ gap: 1.5rem;
+ max-width: 1100px;
+ margin: 0 auto;
 }
 
-/* Une carte avantage */
 .avantage {
-  text-align: center;
-  padding: 1.5rem;
-  border-radius: var(--rayon-bord);
-  background-color: var(--couleur-principale);
-  transition: transform 0.3s;
+ text-align: center;
+ padding: 1.5rem;
+ border-radius: var(--rayon-bord);
+ background-color: var(--couleur-principale);
+ transition: transform 0.3s;
 }
 
 .avantage:hover {
-  transform: translateY(-4px);
+ transform: translateY(-4px);
 }
 
-/* L'icône (emoji ou caractère) */
 .icone-avantage {
-  font-size: 2.5rem;
-  margin-bottom: 0.75rem;
-  display: block;
+ font-size: 2.5rem;
+ margin-bottom: 0.75rem;
+ display: block;
 }
 
 .avantage h3 {
-  margin-bottom: 0.5rem;
-  color: var(--couleur-blanc);
+ margin-bottom: 0.5rem;
+ color: var(--couleur-blanc);
 }
 
 .avantage p {
-  font-size: 0.85rem;
-  color: var(--couleur-texte-mute);
+ font-size: 0.85rem;
+ color: var(--couleur-texte-mute);
 }
 
-
-
 .carte-contact {
-  background-color: var(--couleur-clair);
-  border: 1px solid var(--couleur-accent);
-  border-radius: var(--rayon-bord);
-  padding: 1.5rem 2rem;
-  max-width: 350px;
-  margin: 0 auto 2rem;
-  text-align: center;
+ background-color: var(--couleur-clair);
+ border: 1px solid var(--couleur-accent);
+ border-radius: var(--rayon-bord);
+ padding: 1.5rem 2rem;
+ max-width: 350px;
+ margin: 0 auto 2rem;
+ text-align: center;
 }
 
 .carte-contact h3 {
-  color: var(--couleur-accent);
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
+ color: var(--couleur-accent);
+ margin-bottom: 1rem;
+ font-size: 1.1rem;
 }
 
 .carte-contact p {
-  color: var(--couleur-texte-mute);
-  margin-bottom:0.5rem;
-  font-size: 0.95rem;
+ color: var(--couleur-texte-mute);
+ margin-bottom: 0.5rem;
+ font-size: 0.95rem;
 }
 
-/* ============================================================
-   11. PIED DE PAGE (FOOTER)
-   ============================================================ */
 footer {
-  text-align: center;
-  padding: 2rem;
-  background-color: var(--couleur-clair);
-  color: var(--couleur-texte-mute);
-  font-size: 0.9rem;
-  margin-top: 3rem;
-  border-top: 1px solid #2a2a4a;
+ text-align: center;
+ padding: 2rem;
+ background-color: var(--couleur-clair);
+ color: var(--couleur-texte-mute);
+ font-size: 0.9rem;
+ margin-top: 3rem;
+ border-top: 1px solid #2a2a4a;
 }
 
 footer a {
-  color: var(--couleur-accent);
-  text-decoration: none;
+ color: var(--couleur-accent);
+ text-decoration: none;
 }
 
-/* ============================================================
-   12. RESPONSIVE — adaptation aux petits écrans (mobile)
-   Les règles à l'intérieur s'appliquent UNIQUEMENT si l'écran
-   est plus petit que 700px (ex: smartphones)
-   ============================================================ */
 @media (max-width: 700px) {
+ .hero h1 {
+  font-size: 2rem;
+ }
 
-  /* Le titre héro est plus petit sur mobile */
-  .hero h1 {
-    font-size: 2rem;
-  }
+ .formulaire-recherche {
+  grid-template-columns: 1fr;
+  margin: 1rem 1rem 2rem;
+ }
 
-  /* Le formulaire passe en colonne (un champ par ligne) */
-  .formulaire-recherche {
-    grid-template-columns: 1fr;
-    margin: 1rem 1rem 2rem;
-  }
+ nav {
+  display: none;
+ }
+}
 
-  /* La navigation se cache sur mobile
-     (dans un vrai projet, on ferait un menu hamburger) */
-  nav {
-    display: none;
-  }
+.form-reservation {
+ max-width: 600px;
+ margin: 150px auto;
+ padding: 25px;
+ background: #fff;
+ border-radius: 12px;
+ box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+ font-family: Arial, sans-serif;
+}
+
+.form-reservation h2 {
+ text-align: center;
+ margin-bottom: 20px;
+ color: black;
+}
+
+.form-reservation label {
+ display: block;
+ margin-top: 12px;
+ margin-bottom: 5px;
+ font-weight: bold;
+ color: black;
+}
+
+.form-reservation input,
+.form-reservation select {
+ width: 100%;
+ padding: 10px;
+ border: 1px solid #ddd;
+ border-radius: 8px;
+ outline: none;
+ transition: 0.2s;
+ box-sizing: border-box;
+}
+
+.form-reservation button {
+ width: 100%;
+ margin-top: 20px;
+ padding: 12px;
+ background: black;
+ color: rgb(240, 240, 240);
+ border: none;
+ border-radius: 8px;
+ font-size: 16px;
+ cursor: pointer;
+ transition: 0.2s;
+}
+
+.form-reservation button:hover {
+ background: #00b34a;
+ transform: translateY(-2px);
+}
+
+.res_confirme {
+ color: #00b34a;
+ font-size: 30px;
+ margin-bottom: 1rem;
+}
+
+.res_display {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ gap: 12px;
+}
+
+.btn_res {
+  background-color: green;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+.btn_res :hover{
+  transform: translateY(-5px);
+}
+.lien_res{
+  text-decoration: none;
+  color: white;
 }
 
