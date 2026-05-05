@@ -18,7 +18,9 @@ $voitures = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title> Drive-easy — Réservation de voiture</title>
   <link rel="stylesheet" href="style.css" />
+  
 </head>
+
 <body>
     <link rel="stylesheet" href="css/style.css">
     <h1 class="bvn">Bienvenue sur Drive Easy</h1>
@@ -42,7 +44,7 @@ $voitures = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
   
   <div class="hero">
-    <h1>Trouvez la voiture <span>parfaite</span></h1>
+    <h1 class="bvn">Trouvez la voiture <span>parfaite</span></h1>
     <p>Des centaines de véhicules disponibles, partout en France, au meilleur prix.</p>
     <a href="#voitures" class="btn btn-principal">Voir les voitures</a>
   </div>
@@ -144,6 +146,7 @@ $voitures = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <footer>
     <p>© 2025 Drive-easy par votre meilleur duo : ilias et Wail — <a href="#">Mentions légales</a> — <a href="#">Contact</a></p>
   </footer>
+  
 
 </body>
 </html>
