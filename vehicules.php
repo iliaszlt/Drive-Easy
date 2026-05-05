@@ -32,8 +32,8 @@ $voitures = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
     <link rel="stylesheet" href="css/style.css">
-    <h1>Bienvenue sur Drive Easy</h1>
-    <p>Votre solution de réservation de voiture en ligne.</p>
+    <h1  class="bvn">Bienvenue sur Drive Easy</h1>
+    <p  class="bvn">Votre solution de réservation de voiture en ligne.</p>
     
    
     
@@ -50,7 +50,7 @@ $voitures = $stmt->fetchAll(PDO::FETCH_ASSOC);
       </ul>
     </nav>
   </header>
-<h1>Tous nos véhicules disponibles </h1>
+
   
  <section id="voitures">
     <h2 class="titre-section">Nos véhicules disponibles</h2>
